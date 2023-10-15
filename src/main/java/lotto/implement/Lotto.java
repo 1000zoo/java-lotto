@@ -1,7 +1,5 @@
 package lotto.implement;
 
-import lotto.constants.Rank;
-
 import java.util.List;
 
 public class Lotto {
@@ -18,8 +16,20 @@ public class Lotto {
         }
     }
 
-    public Rank calculateRank(Lotto userNumber) {
-        return null;
+    public int countMatch(Lotto lotto) {
+        int count = 0;
+
+        for (int number : numbers) {
+            if (lotto.hasNumber(number)) {
+                count++;
+            }
+        }
+
+        return count;
+    }
+
+    public boolean hasNumber(int number) {
+        return numbers.contains(number);
     }
 
     @Override
