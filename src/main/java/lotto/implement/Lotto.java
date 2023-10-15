@@ -1,4 +1,6 @@
-package lotto;
+package lotto.implement;
+
+import lotto.constants.Rank;
 
 import java.util.List;
 
@@ -16,7 +18,9 @@ public class Lotto {
         }
     }
 
-    // TODO: 추가 기능 구현
+    public Rank calculateRank(Lotto userNumber) {
+        return null;
+    }
 
     @Override
     public String toString() {

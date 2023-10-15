@@ -1,6 +1,6 @@
 package logic;
 
-import lotto.Lotto;
+import lotto.implement.Lotto;
 import lotto.logic.LottoRandomGenerator;
 import org.junit.jupiter.api.Test;
 
