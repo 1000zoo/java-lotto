@@ -6,4 +6,5 @@ public class Prize {
     public final static int THIRD_PRIZE = 1_500_000;
     public final static int FOURTH_PRIZE= 50000;
     public final static int FIFTH_PRIZE = 5000;
+    public final static int NONE_PRIZE = 0;
 }
