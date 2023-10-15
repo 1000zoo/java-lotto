@@ -7,21 +7,32 @@ import java.util.Arrays;
 
 public class Input {
 
+    public static void main(String[] args) {
+        try {
+            int[] n = readNumbers();
+            for (int i : n) {
+                System.out.println("i = " + i);
+            }
+        } catch (IllegalArgumentException e) {
+            System.out.println("Ss");
+        }
+    }
+
     public static int readAmount() {
         String amount = Console.readLine();
-        // Todo: 에러처리
+        ErrorDetector.isCorrectAmount(amount);
         return Integer.parseInt(amount);
     }
 
     public static int[] readNumbers() {
         String numbers = Console.readLine();
-        // Todo: 에러처리
+        ErrorDetector.isCorrectNumbers(numbers);
         return stringToIntegerArray(numbers);
     }
 
     public static int readBonusNumber() {
         String number = Console.readLine();
-        // Todo: 에러처리
+        ErrorDetector.isCorrectNumber(number);
         return Integer.parseInt(number);
     }
 
