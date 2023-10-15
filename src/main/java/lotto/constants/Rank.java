@@ -6,7 +6,7 @@ public enum Rank {
     THIRD(Prize.THIRD_PRIZE),
     FOURTH(Prize.FOURTH_PRIZE),
     FIFTH(Prize.FIFTH_PRIZE),
-    NONE(0);
+    NONE(Prize.NONE_PRIZE);
 
     private final int prize;
 
