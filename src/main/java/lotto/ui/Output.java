@@ -20,6 +20,10 @@ public class Output {
         System.out.println(roeInstruction(roe));
     }
 
+    public static void printErrorMessage(String msg) {
+        System.out.println("[ERROR]" + msg);
+    }
+
     private static String buyInstruction(int num) {
         return String.format("%d개를 구매했습니다.", num);
     }
@@ -32,7 +36,7 @@ public class Output {
         return String.format("총 수익률은 %.1f%s입니다.", roe, "%");
     }
 
-    public static String stringFormat(int prize) {
+    private static String stringFormat(int prize) {
         StringBuilder sb = new StringBuilder();
         int count = 0;
         while (prize > 0) {

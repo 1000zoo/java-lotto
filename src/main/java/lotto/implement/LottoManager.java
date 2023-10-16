@@ -12,12 +12,24 @@ import java.util.stream.Collectors;
 
 public class LottoManager {
 
-    private final Lotto answer;
-    private final int bonusNumber;
+    private Lotto answer;
+    private int bonusNumber;
 
-    public LottoManager() {
-        this.answer = new Lotto(readNumbers());
-        this.bonusNumber = readBonusNumbers();
+    public void setAnswer() {
+        try {
+            this.answer = new Lotto(readNumbers());
+            setBonusNumber();
+        } catch (IllegalArgumentException e) {
+            Output.printErrorMessage(Message.INVALID_NUMBERS_ERROR_MESSAGE);
+        }
+    }
+
+    public void setBonusNumber() {
+        try {
+            this.bonusNumber = readBonusNumbers();
+        } catch (IllegalArgumentException e) {
+            Output.printErrorMessage(Message.INVALID_BONUS_NUMBER_ERROR_MESSAGE);
+        }
     }
 
     public int getResults(List<Lotto> lottos) {

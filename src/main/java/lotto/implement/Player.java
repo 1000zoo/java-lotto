@@ -1,6 +1,7 @@
 package lotto.implement;
 
 import lotto.constants.Etc;
+import lotto.constants.Message;
 import lotto.logic.LottoRandomGenerator;
 import lotto.ui.Input;
 import lotto.ui.Output;
@@ -10,19 +11,29 @@ import java.util.List;
 
 public class Player {
 
-    private final int amount;
-    private final LottoManager lm;
-    private final List<Lotto> lottos;
+    private int amount;
+    private LottoManager lottoManager;
+    private List<Lotto> lottos;
 
-    public Player() {
-        this.amount = Input.readAmount();
-        this.lottos = new ArrayList<>();
-        setLottos();
-        this.lm = new LottoManager();
+    public void start() {
+        try {
+            this.amount = Input.readAmount();
+            this.lottos = new ArrayList<>();
+            setLottos();
+            setLottoManager();
+            getResults();
+        } catch (IllegalArgumentException e) {
+            Output.printErrorMessage(Message.INVALID_AMOUNT_ERROR_MESSAGE);
+        }
     }
 
-    public void getResults() {
-        int profit = lm.getResults(lottos);
+    private void setLottoManager() {
+        lottoManager = new LottoManager();
+        lottoManager.setAnswer();
+    }
+
+    private void getResults() {
+        int profit = lottoManager.getResults(lottos);
         getRoe(profit);
     }
 

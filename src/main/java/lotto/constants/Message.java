@@ -8,6 +8,10 @@ public class Message {
 
     public final static String RESULT_INSTRUCTION = "당첨 통계\n---";
 
+    public final static String INVALID_AMOUNT_ERROR_MESSAGE = "로또 구입 금액은 1,000원 단위여야 합니다.";
+    public final static String INVALID_NUMBERS_ERROR_MESSAGE = "당첨 번호 입력이 잘못되었습니다.";
+    public final static String INVALID_BONUS_NUMBER_ERROR_MESSAGE = "보너스 번호 입력이 잘못되었습니다.";
+
 
     public final static String[] RESULTS_INSTRUCTIONS = {
             "6개 일치",
