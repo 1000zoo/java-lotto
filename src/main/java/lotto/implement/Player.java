@@ -1,8 +1,10 @@
 package lotto.implement;
 
 import lotto.constants.Etc;
+import lotto.constants.Message;
 import lotto.logic.LottoRandomGenerator;
 import lotto.ui.Input;
+import lotto.ui.Output;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,9 +17,9 @@ public class Player {
 
     public Player() {
         this.amount = Input.readAmount();
-        this.lm = new LottoManager();
         this.lottos = new ArrayList<>();
         setLottos();
+        this.lm = new LottoManager();
     }
 
     public void getResults() {
@@ -34,5 +36,16 @@ public class Player {
         for (int i = 0; i < n; i++) {
             lottos.add(LottoRandomGenerator.getRandomLotto());
         }
+        Output.printInstruction(lottosToString());
+    }
+
+    private String lottosToString() {
+        StringBuilder sb = new StringBuilder();
+
+        for (Lotto lotto : lottos) {
+            sb.append(lotto).append(" ");
+        }
+
+        return sb.toString();
     }
 }

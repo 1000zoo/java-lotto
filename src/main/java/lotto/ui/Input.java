@@ -2,6 +2,7 @@ package lotto.ui;
 
 import camp.nextstep.edu.missionutils.Console;
 import lotto.constants.Etc;
+import lotto.constants.Message;
 
 import java.util.Arrays;
 
@@ -9,18 +10,21 @@ public class Input {
 
 
     public static int readAmount() {
+        Output.printInstruction(Message.AMOUNT_INPUT_INSTRUCTION);
         String amount = Console.readLine();
         ErrorDetector.isCorrectAmount(amount);
         return Integer.parseInt(amount);
     }
 
     public static int[] readNumbers() {
+        Output.printInstruction(Message.ANSWER_NUMBERS_INPUT_INSTRUCTION);
         String numbers = Console.readLine();
         ErrorDetector.isCorrectNumbers(numbers);
         return stringToIntegerArray(numbers);
     }
 
     public static int readBonusNumber() {
+        Output.printInstruction(Message.BONUS_NUMBER_INPUT_INSTRUCTION);
         String number = Console.readLine();
         ErrorDetector.isCorrectNumber(number);
         return Integer.parseInt(number);

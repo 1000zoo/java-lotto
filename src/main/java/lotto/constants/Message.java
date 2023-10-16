@@ -9,4 +9,5 @@ public class Message {
     public final static String RESULT_INSTRUCTION = "당첨 통계\n---";
 
 
+
 }

@@ -1,5 +1,6 @@
 package lotto.implement;
 
+import lotto.constants.Etc;
 import lotto.constants.Rank;
 import lotto.ui.Input;
 
@@ -35,26 +36,25 @@ public class LottoManager {
     }
 
 
-    // TODO: 등수 확인 로직 수정
-    private Rank getRank(Lotto userNumber) {
-        int count = answer.countMatch(userNumber);
+    private int realRank(Lotto user) {
+        int count = answer.countMatch(user);
 
         if (count == 6) {
-            return Rank.FIRST;
+            return 0;
         }
-        if (count == 5 && hasBonusNumber(userNumber)) {
-            return Rank.SECOND;
+        if (count == 5 && hasBonusNumber(user)) {
+            return 1;
         }
-        if (count == 5) {
-            return Rank.THIRD;
+        if (count < 3) {
+            return 5;
         }
-        if (count == 4) {
-            return Rank.FOURTH;
-        }
-        if (count == 3) {
-            return Rank.FIFTH;
-        }
-        return Rank.NONE;
+
+        return Etc.LOTTO_LENGTH - count + 1;
+    }
+
+    private Rank getRank(Lotto userNumber) {
+        Rank[] ranks = Rank.values();
+        return ranks[realRank(userNumber)];
     }
 
     private boolean hasBonusNumber(Lotto userNumber) {
