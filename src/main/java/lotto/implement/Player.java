@@ -1,7 +1,6 @@
 package lotto.implement;
 
 import lotto.constants.Etc;
-import lotto.constants.Message;
 import lotto.logic.LottoRandomGenerator;
 import lotto.ui.Input;
 import lotto.ui.Output;
@@ -27,12 +26,14 @@ public class Player {
         getRoe(profit);
     }
 
-    public void getRoe(int profit) {
-        double roe = 100.0 * profit / amount;
+    private void getRoe(int profit) {
+        double roe = (100.0 * profit) / amount;
+        Output.printRoeInstruction(roe);
     }
 
     private void setLottos() {
         int n = amount / Etc.THOUSAND;
+        Output.printBuyInstruction(n);
         for (int i = 0; i < n; i++) {
             lottos.add(LottoRandomGenerator.getRandomLotto());
         }

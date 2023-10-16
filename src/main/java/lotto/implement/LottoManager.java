@@ -1,13 +1,13 @@
 package lotto.implement;
 
 import lotto.constants.Etc;
+import lotto.constants.Message;
 import lotto.constants.Rank;
 import lotto.ui.Input;
+import lotto.ui.Output;
 
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 
 public class LottoManager {
@@ -21,18 +21,37 @@ public class LottoManager {
     }
 
     public int getResults(List<Lotto> lottos) {
-        int[] counts = new int[lottos.size()];
+        int[] counts = new int[Etc.LOTTO_LENGTH];
 
         for (Lotto lotto : lottos) {
             Rank rank = getRank(lotto);
-            counts[rank.getRank()]++;
+            int temp = rank.getRank();
+            if (temp >= 5) continue;
+            counts[temp]++;
         }
+
+        printResults(counts);
 
         return getTotalProfit(counts);
     }
 
+    public static void printResults(int[] counts) {
+        Rank[] ranks = Rank.values();
+        for (int i = 4; i >= 0; i--) {
+            Output.printMatchInstruction(
+                    Message.RESULTS_INSTRUCTIONS[i],
+                    ranks[i].getPrize(),
+                    counts[i]
+            );
+        }
+    }
+
     private int getTotalProfit(int[] counts) {
-        return Arrays.stream(counts).sum();
+        int[] profits = new int[counts.length];
+        for (int i = 0; i < counts.length; i++) {
+            profits[i] = counts[i] * Rank.values()[i].getPrize();
+        }
+        return Arrays.stream(profits).sum();
     }
 
 

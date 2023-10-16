@@ -1,5 +1,6 @@
-package lotto.constants;
+package constants;
 
+import lotto.constants.Rank;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

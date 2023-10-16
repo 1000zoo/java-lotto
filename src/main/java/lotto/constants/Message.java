@@ -9,5 +9,13 @@ public class Message {
     public final static String RESULT_INSTRUCTION = "당첨 통계\n---";
 
 
+    public final static String[] RESULTS_INSTRUCTIONS = {
+            "6개 일치",
+            "5개 일치, 보너스 볼 일치",
+            "5개 일치",
+            "4개 일치",
+            "3개 일치"
+    };
+
 
 }

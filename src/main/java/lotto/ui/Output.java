@@ -12,8 +12,8 @@ public class Output {
         System.out.println(buyInstruction(num));
     }
 
-    public static void printMatchInstruction(int rank, int prize, int count) {
-        System.out.println(matchInstruction(rank, prize, count));
+    public static void printMatchInstruction(String rankInstruction, int prize, int count) {
+        System.out.println(matchInstruction(rankInstruction, prize, count));
     }
 
     public static void printRoeInstruction(double roe) {
@@ -24,12 +24,12 @@ public class Output {
         return String.format("%d개를 구매했습니다.", num);
     }
 
-    private static String matchInstruction(int rank, int prize, int count) {
-        return String.format("%d개 일치 (%s원) - %d개", rank, stringFormat(prize), count);
+    private static String matchInstruction(String rankInstruction, int prize, int count) {
+        return String.format("%s (%s원) - %d개", rankInstruction, stringFormat(prize), count);
     }
 
     private static String roeInstruction(double roe) {
-        return String.format("총 수익률은 %f입니다.", roe);
+        return String.format("총 수익률은 %.1f%s입니다.", roe, "%");
     }
 
     public static String stringFormat(int prize) {
