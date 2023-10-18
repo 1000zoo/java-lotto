@@ -16,15 +16,11 @@ public class Player {
     private List<Lotto> lottos;
 
     public void start() {
-        try {
-            this.amount = Input.readAmount();
-            this.lottos = new ArrayList<>();
-            setLottos();
-            setLottoManager();
-            getResults();
-        } catch (IllegalArgumentException e) {
-            Output.printErrorMessage(Message.INVALID_AMOUNT_ERROR_MESSAGE);
-        }
+        this.amount = Input.readAmount();
+        this.lottos = new ArrayList<>();
+        setLottos();
+        setLottoManager();
+        getResults();
     }
 
     private void setLottoManager() {

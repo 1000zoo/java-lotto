@@ -16,20 +16,12 @@ public class LottoManager {
     private int bonusNumber;
 
     public void setAnswer() {
-        try {
-            this.answer = new Lotto(readNumbers());
-            setBonusNumber();
-        } catch (IllegalArgumentException e) {
-            Output.printErrorMessage(Message.INVALID_NUMBERS_ERROR_MESSAGE);
-        }
+        this.answer = new Lotto(readNumbers());
+        setBonusNumber();
     }
 
     public void setBonusNumber() {
-        try {
-            this.bonusNumber = readBonusNumbers();
-        } catch (IllegalArgumentException e) {
-            Output.printErrorMessage(Message.INVALID_BONUS_NUMBER_ERROR_MESSAGE);
-        }
+        this.bonusNumber = readBonusNumbers();
     }
 
     public int getResults(List<Lotto> lottos) {
